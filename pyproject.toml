@@ -1,0 +1,47 @@
+[project]
+name = "remix-toolkit"
+version = "0.1.0"
+description = "Audio → Analysis → Stems → MIDI → Bitwig Studio remix pipeline"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+dependencies = [
+    "demucs>=4.0",
+    "basic-pitch>=0.3",
+    "pretty-midi>=0.2.10",
+    "librosa>=0.10",
+    "numpy>=1.24",
+    "soundfile>=0.12",
+    "click>=8.1",
+    "mido[ports-rtmidi]>=1.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+remix = "src.cli:cli"
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
