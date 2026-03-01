@@ -51,6 +51,7 @@ def transcribe_stems(
         try:
             model_output, midi_data, note_events = predict(
                 audio_file,
+                ICASSP_2022_MODEL_PATH,
                 onset_threshold=onset_threshold,
                 frame_threshold=0.3,
                 minimum_note_length=min_note_length,

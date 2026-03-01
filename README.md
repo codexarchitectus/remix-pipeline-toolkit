@@ -21,10 +21,19 @@ The goal is a remix workflow: drop a track in → get a blueprint + stems + MIDI
 
 ---
 
+## Requirements
+
+- **Python 3.10+** — install via `brew install python@3.12`
+- **FFmpeg** — install via `brew install ffmpeg` (required by Demucs for audio loading)
+- **macOS IAC Driver** — for the Bitwig recording flow (built-in, just needs enabling)
+
 ## Quick Start
 
 ```bash
-# Install (requires Python 3.10+)
+# Install Homebrew dependencies first (one-time)
+brew install python@3.12 ffmpeg
+
+# Then install the toolkit
 ./setup.sh
 source .venv/bin/activate
 
